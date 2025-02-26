@@ -56,8 +56,8 @@ void Pervasive_Wide_Large::COG_getDataOTP()
     hV_HAL_GPIO_clear(b_pin.panelDC); // Command
     hV_HAL_GPIO_clear(b_pin.panelCS); // Select
     hV_HAL_SPI3_write(0xb9);
-    delay(5);
-    mySerial.println("Command sent...");
+    hV_HAL_delayMilliseconds(5); // !!! Use hV_HAL_Peripherals
+    // mySerial.println("Command sent...");
     hV_HAL_GPIO_set(b_pin.panelDC); // Data
     ui8 = hV_HAL_SPI3_read(); // Dummy
     // hV_HAL_log(LEVEL_DEBUG, "Dummy read 0x%02x", ui8);
@@ -66,24 +66,24 @@ void Pervasive_Wide_Large::COG_getDataOTP()
     for (uint16_t index = 0; index < _readBytes; index += 1)
     {
         COG_data[index] = hV_HAL_SPI3_read(); // Read OTP
-        mySerial.print(index, HEX);
-        mySerial.print("\t");
-        mySerial.println(COG_data[index], HEX);
+        // mySerial.print(index, HEX);
+        // mySerial.print("\t");
+        // mySerial.println(COG_data[index], HEX);
         // mySerial.println(formatString("%d OTP 0x%02x", index, COG_data[index]));
     }
-    mySerial.println("OTP populated...");
+    // mySerial.println("OTP populated...");
     // End of OTP reading
     hV_HAL_GPIO_set(b_pin.panelCS); // Unselect
 
     // Check
     uint8_t _chipId = 0x96;
 
-    u_flagOTP = (COG_data[0] == _chipId);
+    u_flagOTP = (COG_data[1] == _chipId); // !!! COG Type(0x01): 0x96 -> dual-chip
     if (u_flagOTP == false)
     {
         hV_HAL_Serial_crlf();
         hV_HAL_log(LEVEL_CRITICAL, "OTP check failed - First byte 0x%02x, expected 0x%02x", COG_data[0], _chipId);
-        // hV_HAL_exit(0x01);
+        hV_HAL_exit(0x01); // !!! Don't by-pass checks
     }
 }
 
