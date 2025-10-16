@@ -85,6 +85,7 @@ void Pervasive_Wide_Large::COG_getDataOTP()
         hV_HAL_log(LEVEL_CRITICAL, "OTP check failed - First byte 0x%02x, expected 0x%02x", COG_data[0], _chipId);
         hV_HAL_exit(0x01); // !!! Don't by-pass checks
     }
+	hV_HAL_SPI3_end();
 }
 
 void Pervasive_Wide_Large::COG_initial()
