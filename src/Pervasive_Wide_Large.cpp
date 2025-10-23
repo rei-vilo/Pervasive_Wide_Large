@@ -85,7 +85,7 @@ void Pervasive_Wide_Large::COG_getDataOTP()
         hV_HAL_log(LEVEL_CRITICAL, "OTP check failed - First byte 0x%02x, expected 0x%02x", COG_data[0], _chipId);
         hV_HAL_exit(0x01); // !!! Don't by-pass checks
     }
-	hV_HAL_SPI3_end();
+    hV_HAL_SPI3_end();
 }
 
 void Pervasive_Wide_Large::COG_initial()
@@ -176,25 +176,25 @@ void Pervasive_Wide_Large::COG_update(uint8_t updateMode)
 
     switch (updateMode)
     {
-    case UPDATE_FAST:
+        case UPDATE_FAST:
 
-        indexTemperature = (u_temperature + 0x28) + 0x80;
-        // indexTemperature = (u_temperature > 50) ? 0xda : indexTemperature;
-        // indexTemperature = (u_temperature < 0) ? 0xa8 : indexTemperature;
-        indexTemperature = checkRange(indexTemperature, (uint8_t)0xa8, (uint8_t)0xda);
-        break;
+            indexTemperature = (u_temperature + 0x28) + 0x80;
+            // indexTemperature = (u_temperature > 50) ? 0xda : indexTemperature;
+            // indexTemperature = (u_temperature < 0) ? 0xa8 : indexTemperature;
+            indexTemperature = checkRange(indexTemperature, (uint8_t)0xa8, (uint8_t)0xda);
+            break;
 
-    case UPDATE_NORMAL:
+        case UPDATE_NORMAL:
 
-        indexTemperature = u_temperature + 0x28; // Temperature 0x41@25C
-        // indexTemperature = (u_temperature > 60) ? 0x64 : indexTemperature;
-        // indexTemperature = (u_temperature < -15) ? 0x19 : indexTemperature;
-        indexTemperature = checkRange(indexTemperature, (uint8_t)0x19, (uint8_t)0x64);
-        break;
+            indexTemperature = u_temperature + 0x28; // Temperature 0x41@25C
+            // indexTemperature = (u_temperature > 60) ? 0x64 : indexTemperature;
+            // indexTemperature = (u_temperature < -15) ? 0x19 : indexTemperature;
+            indexTemperature = checkRange(indexTemperature, (uint8_t)0x19, (uint8_t)0x64);
+            break;
 
-    default:
+        default:
 
-        break;
+            break;
     }
 
     b_sendCommandDataSelect8(0x44, 0x06, PANEL_CS_MASTER);

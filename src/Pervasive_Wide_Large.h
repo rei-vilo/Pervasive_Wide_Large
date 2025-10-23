@@ -81,7 +81,7 @@
 ///
 class Pervasive_Wide_Large : public Driver_EPD_Virtual
 {
-public:
+  public:
     ///
     /// @brief Constructor
     /// @param eScreen_EPD
@@ -128,9 +128,9 @@ public:
 
     /// @}
 
-protected:
+  protected:
 
-private:
+  private:
 
     // Variables and functions specific to the screen
     uint8_t COG_data[128]; // OTP
