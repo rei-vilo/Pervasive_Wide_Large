@@ -6,9 +6,7 @@
 // Project Pervasive Displays Library Suite
 // Based on highView technology
 //
-// Created by Rei Vilo, 21 Nov 2024
-//
-// Copyright (c) Rei Vilo, 2010-2024
+// Copyright (c) Pervasive Displays Inc., 2021-2025
 // Licence All rights reserved
 //
 // See Pervasive_Wide_Large.h for references
@@ -85,7 +83,13 @@ void Pervasive_Wide_Large::COG_getDataOTP()
         hV_HAL_log(LEVEL_CRITICAL, "OTP check failed - First byte 0x%02x, expected 0x%02x", COG_data[0], _chipId);
         hV_HAL_exit(0x01); // !!! Don't by-pass checks
     }
+
     hV_HAL_SPI3_end();
+    u_flagOTP = true;
+
+#if (DEBUG_OTP == 1) // Debug COG_data
+    debugOTP(COG_data, _readBytes, COG_WIDE_LARGE, SCREEN_DRIVER(u_eScreen_EPD));
+#endif // DEBUG_OTP
 }
 
 void Pervasive_Wide_Large::COG_initial()

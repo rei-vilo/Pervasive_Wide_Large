@@ -6,11 +6,10 @@
 /// @n Based on highView technology
 /// * ApplicationNote_E5_SE_smallSize_EPD_v01_20230522
 ///
-/// @author Rei Vilo
 /// @date 21 Nov 2024
 /// @version 900
 ///
-/// @copyright (c) Rei Vilo, 2010-2024
+/// @copyright (c) Pervasive Displays Inc., 2021-2025
 /// @copyright All rights reserved
 /// @copyright For exclusive use with Pervasive Displays screens
 ///
