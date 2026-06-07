@@ -285,6 +285,11 @@ void Pervasive_Wide_Large::COG_stopDCDC()
     b_sendCommandDataSelect8(0x09, 0x7e, PANEL_CS_BOTH);
     hV_HAL_delayMilliseconds(60);
     b_sendCommandDataSelect8(0x09, 0x00, PANEL_CS_BOTH);
+	
+	// Additional steps for Power OFF
+	// clear D/C, RESET, CS, SPI pins to LOW
+	// keep BUSY floating
+	// cut Vcc off
 }
 //
 // --- End of Small screens with Q film
