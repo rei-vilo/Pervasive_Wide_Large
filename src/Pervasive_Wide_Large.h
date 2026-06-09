@@ -6,8 +6,8 @@
 /// @n Based on highView technology
 /// * ApplicationNote_E5_SE_smallSize_EPD_v01_20230522
 ///
-/// @date 21 Nov 2024
-/// @version 900
+/// @date 9 June 2026
+/// @version 904
 ///
 /// @copyright (c) Pervasive Displays Inc., 2021-2026
 /// @copyright All rights reserved
@@ -46,7 +46,7 @@
 ///
 /// @brief Library release number
 ///
-#define PERVASIVE_WIDE_LARGE_RELEASE 902
+#define PERVASIVE_WIDE_LARGE_RELEASE 904
 
 ///
 /// @name List of supported screens

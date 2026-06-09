@@ -21,7 +21,7 @@
 // Release 802: Added references to application notes
 // Release 802: Refactored CoG functions
 // Release 900: Added new driver library
-//
+// Release 904:
 
 // Header
 #include "Pervasive_Wide_Large.h"
