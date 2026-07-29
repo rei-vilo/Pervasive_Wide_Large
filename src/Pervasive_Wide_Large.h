@@ -7,7 +7,7 @@
 /// * ApplicationNote_E5_SE_smallSize_EPD_v01_20230522
 ///
 /// @date 9 June 2026
-/// @version 904
+/// @version 1000
 ///
 /// @copyright (c) Pervasive Displays Inc., 2021-2026
 /// @copyright All rights reserved
@@ -35,18 +35,18 @@
 // SDK and configuration
 #include "PDLS_Common.h"
 
-#if (PDLS_COMMON_RELEASE < 902)
-#error Required PDLS_COMMON_RELEASE 902
+#if (PDLS_COMMON_RELEASE < 1000)
+#error Required PDLS_COMMON_RELEASE 1000
 #endif // PDLS_COMMON_RELEASE
 
 // Driver
 #include "Driver_EPD_Virtual.h"
 
-#ifndef PERVASIVE_WIDE_LARGE_RELEASE
+#ifndef DRIVER_WIDE_LARGE_RELEASE
 ///
 /// @brief Library release number
 ///
-#define PERVASIVE_WIDE_LARGE_RELEASE 904
+#define DRIVER_WIDE_LARGE_RELEASE 1000
 
 ///
 /// @name List of supported screens
@@ -72,7 +72,7 @@
 ///
 /// @brief Driver variant
 ///
-#define DRIVER_EPD_RELEASE PERVASIVE_WIDE_LARGE_RELEASE
+#define DRIVER_EPD_RELEASE DRIVER_WIDE_LARGE_RELEASE
 #define DRIVER_EPD_VARIANT "Wide large"
 
 ///
