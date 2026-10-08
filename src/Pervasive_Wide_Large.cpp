@@ -23,6 +23,7 @@
 // Release 900: Added new driver library
 // Release 904: Updated year of copyright
 // Release 1000: Synchronised with PDLS_Common
+// Release 1011: Improved trace granualarity
 //
 
 // Header
@@ -81,7 +82,7 @@ void Pervasive_Wide_Large::COG_getDataOTP()
     u_flagOTP = (COG_data[1] == _chipId); // !!! COG Type(0x01): 0x96 -> dual-chip
     if (u_flagOTP == false)
     {
-        hV_HAL_Serial_crlf();
+        hV_HAL_log_crlf();
         hV_HAL_log(LEVEL_CRITICAL, "OTP check failed - First byte 0x%02x, expected 0x%02x", COG_data[0], _chipId);
         hV_HAL_exit(0x01); // !!! Don't by-pass checks
     }
